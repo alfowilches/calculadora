@@ -1,8 +1,8 @@
 alert("Bienvenido a la Calculadora hecha con javascript")
 var op1 = prompt("Primer Operando");
 var op2 = prompt("Segundo Operando");
-var operador = prompt("Operador (suma,sum,+,resta,subt,-)");
-var oper = ['suma','sum','+','resta','subt','-'];
+var operador = prompt("Operador (suma,sum,+,resta,subt,-,multiplicar,mult,*,dividir,divide,/)");
+var oper = ['suma','sum','+','resta','subt','-','multiplicar','mult','*','dividir','divide','/'];
 var veroper = false;
 var resultado;
 var opera;
@@ -17,6 +17,15 @@ function restar(p1, p2){
   return resultado;
 };
 
+function multiplicar(p1, p2){
+  resultado = parseFloat(p1)*parseFloat(p2);
+  return resultado;
+};
+
+function dividir(p1, p2){
+  resultado = parseFloat(p1)/parseFloat(p2);
+  return resultado;a
+};
 
 if(!isNaN(op1) && !isNaN(op2)){
   for(var pos in oper){
@@ -28,7 +37,13 @@ if(!isNaN(op1) && !isNaN(op2)){
       }else if(pos > 2 && pos < 6){
                opera = '-';
                resultado = restar(op1,op2);
-            }
+            }else if(pos > 5 && pos < 9){
+                     opera = '*';
+                     resultado = multiplicar(op1,op2);;
+                  }else {
+                     opera = '/';
+                     resultado = dividir(op1,op2);
+                  }
     };
 
   };
